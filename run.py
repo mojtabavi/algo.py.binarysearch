@@ -9,6 +9,7 @@ import os
 import platform 
 import sys
 from  iterative import iterative_binarysearch
+from  recursive import rec_binarysearch
 
 from input import array
 
@@ -31,7 +32,6 @@ while True:
     print("     0- Exit ")
     try:
         option = int(input("Enter a method: "))
-        x = int(input("Enter a number to Fine: "))
         if option < 0 or option > 4:
             raise Exception
     except:
@@ -44,14 +44,18 @@ while True:
 
 if option == 0:
     sys.exit(0)
+else:
+    x = int(input("Enter a number to Fine: "))
 
 
-value = False 
+resualt = False 
 
 if option == 1:
-    value = iterative_binarysearch(0,(len(array)-1),array,x)
+    resualt = iterative_binarysearch(0,(len(array)-1),array,x)
+if option == 2:
+    resualt = rec_binarysearch(0,(len(array)-1),array,x)
 
-if not(value):
+if not(resualt):
     print("Your Number NOT Exists")
 else:
     print("hey I Found Your Number")
